@@ -31,23 +31,28 @@ namespace EvolveTestProjectDemo
         public void AppLaunches()
         {
             app.Screenshot("First screen.");
-            app.Repl();
+            //app.Repl();
         }
 
         [Test]
         public void ViewSessions()
         {
+            app.Screenshot("First Screen");
             app.Tap(x => x.Text("Not Now"));
+            app.Screenshot("Skip Sign In");
             app.Tap(x => x.Class("ImageButton"));
+            app.Screenshot("Open Menu Bar");
             app.Tap("Sessions");
+            app.Screenshot("Tap Sessions");
             app.WaitForElement("No Sessions Found");
+            app.Screenshot("Load Sessions Page");
         }
 
-        [Test]
-        public void SearchSessions()
-        {
-           
-        }
+      //  [Test]
+    //    public void SearchSessions()
+    //    {
+  //         
+   //     }
     }
 }
 

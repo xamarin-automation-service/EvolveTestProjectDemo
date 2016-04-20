@@ -23,7 +23,7 @@ namespace EvolveTestProjectDemo
                 .Android
                 // TODO: Update this path to point to your Android app and uncomment the
                 // code if the app is not included in the solution.
-                //.ApkFile ("../../../Android/bin/Debug/UITestsAndroid.apk")
+                .ApkFile ("signed-com.xamarin.evolve3.apk")
                 .StartApp();
         }
 
@@ -31,6 +31,22 @@ namespace EvolveTestProjectDemo
         public void AppLaunches()
         {
             app.Screenshot("First screen.");
+            app.Repl();
+        }
+
+        [Test]
+        public void ViewSessions()
+        {
+            app.Tap(x => x.Text("Not Now"));
+            app.Tap(x => x.Class("ImageButton"));
+            app.Tap("Sessions");
+            app.WaitForElement("No Sessions Found");
+        }
+
+        [Test]
+        public void SearchSessions()
+        {
+           
         }
     }
 }
